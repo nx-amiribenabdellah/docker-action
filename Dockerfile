@@ -25,12 +25,7 @@ COPY config/etc /etc
 RUN mkdir -p /var/{lib,tmp,log}/nginx \
     && chown -R sw6.sw6 /run /var/{lib,tmp,log}/nginx \
     && chown -R sw6.sw6 /var/cache/composer
-# Make sure
-WORKDIR $PROJECT_ROOT
-# Make sure
-USER sw6
-# Make sure
-ADD --chown=sw6 . .
+
 
 
 # Let supervisord start nginx & php-fpm
