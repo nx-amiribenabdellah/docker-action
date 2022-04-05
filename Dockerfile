@@ -13,10 +13,7 @@ RUN apk --no-cache add \
         php7-mysqli php7-openssl php7-pdo_mysql \
         php7-session php7-simplexml php7-tokenizer php7-xml php7-xmlreader php7-xmlwriter \
         php7-zip php7-zlib php7-phar php7-opcache php7-sodium git \
-        gnu-libiconv \
-    && adduser -u 1000 -D -h $PROJECT_ROOT sw6 sw6 \
-    && rm /etc/nginx/conf.d/default.conf \
-    && mkdir -p /var/cache/composer
+
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY config/etc /etc
