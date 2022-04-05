@@ -1,0 +1,11 @@
+name: copy files
+on: [push]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: build a docker action
+        uses: canastro/copy-file-action@master
