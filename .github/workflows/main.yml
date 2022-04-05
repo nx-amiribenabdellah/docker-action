@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: build a docker action
-        uses: canastro/copy-file-action@master
+        uses: nx-amiribenabdellah/docker-action@v1.1
