@@ -21,7 +21,26 @@ RUN apk --no-cache add \
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY config/etc /etc
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
+# Make sure files/folders needed by the processes are accessible when they run under the sw6
+RUN mkdir -p /var/{lib,tmp,log}/nginx \
+    && chown -R sw6.sw6 /run /var/{lib,tmp,log}/nginx \
+    && chown -R sw6.sw6 /var/cache/composer
+# Make sure
+WORKDIR $PROJECT_ROOT
+# Make sure
+USER sw6
+# Make sure
+ADD --chown=sw6 . .
+# Make sure
+RUN APP_URL="http://localhost" DATABASE_URL="" bin/console assets:install \
+    && rm -Rf var/cache \
+    && touch install.lock \
+    && mkdir -p var/cache
+
+# Expose the port nginx is reachable on
+EXPOSE 8000
+
+# Let supervisord start nginx & php-fpm
 COPY entrypoint/entrypoint.sh /entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
