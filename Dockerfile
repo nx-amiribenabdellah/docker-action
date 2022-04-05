@@ -31,14 +31,7 @@ WORKDIR $PROJECT_ROOT
 USER sw6
 # Make sure
 ADD --chown=sw6 . .
-# Make sure
-RUN APP_URL="http://localhost" DATABASE_URL="" bin/console assets:install \
-    && rm -Rf var/cache \
-    && touch install.lock \
-    && mkdir -p var/cache
 
-# Expose the port nginx is reachable on
-EXPOSE 8000
 
 # Let supervisord start nginx & php-fpm
 COPY entrypoint/entrypoint.sh /entrypoint.sh
