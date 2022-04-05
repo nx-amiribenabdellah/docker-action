@@ -21,17 +21,7 @@ RUN apk --no-cache add \
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY config/etc /etc
 
-# Make sure
-WORKDIR $PROJECT_ROOT
-# Make sure
-USER sw6
-# Make sure
-ADD --chown=sw6 . .
-# Make sure
 
-
-# Expose the port nginx is reachable on
-EXPOSE 8000
 
 # Let supervisord start nginx & php-fpm
 COPY entrypoint/entrypoint.sh /entrypoint.sh
