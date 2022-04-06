@@ -9,7 +9,8 @@ class SwagTest
     *@return int
     */
     public function testCI(): int {
-        return 42
+        return 42;
+
     }
 
 }
