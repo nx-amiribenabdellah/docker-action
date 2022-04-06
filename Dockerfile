@@ -11,10 +11,9 @@ RUN mv composer.phar /usr/local/bin/composer
 
 RUN mkdir /phplint && cd /phplint && composer require overtrue/phplint && ln -s /phplint/vendor/bin/phplint /usr/local/bin/phplint
 
-COPY INPUT_DOC  "/tests"
+COPY "./" "/"
 
-RUN chmod +x /tests/CITest.php
-RUN chmod +x /tests/SwagTest.php
-COPY "entrypoint.sh" "/entrypoint.sh"
+RUN chmod +x ./*.php
+
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
