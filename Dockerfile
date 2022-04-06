@@ -13,7 +13,5 @@ RUN mkdir /phplint && cd /phplint && composer require overtrue/phplint && ln -s 
 
 COPY "./" "/"
 
-RUN chmod +x ./*.php
-
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
