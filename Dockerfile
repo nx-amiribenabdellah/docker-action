@@ -11,7 +11,7 @@ RUN mv composer.phar /usr/local/bin/composer
 
 RUN mkdir /phplint && cd /phplint && composer require overtrue/phplint && ln -s /phplint/vendor/bin/phplint /usr/local/bin/phplint
 
-COPY "$1" "/tests"
+COPY INPUT_DOC  "/tests"
 
 RUN chmod +x /tests/CITest.php
 RUN chmod +x /tests/SwagTest.php
