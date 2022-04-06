@@ -2,16 +2,12 @@ name: 'Copy file'
 description: 'Copy local files'
 author: 'Ricardo Canastro'
 inputs:
-  flags:
-    description: 'Flags to use on the cp command. See "man cp" or "cp --help" for more details'
-    required: false
-    default: ''
-  source:
-    description: 'Source file'
+  doc:  # id of input
+    description: 'Who to greet'
     required: true
-  target:
-    description: 'Target file'
-    required: true
+    default: './'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.doc }}

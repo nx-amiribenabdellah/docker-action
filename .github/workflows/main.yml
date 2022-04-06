@@ -8,4 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: build a docker action
-        uses: nx-amiribenabdellah/docker-action@v1.16
+        uses: nx-amiribenabdellah/docker-action@v1.17
+        with:
+          doc: 'config'
